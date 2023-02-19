@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify3728f88fb8564-staging-00404-authRole",
+      "UnauthRoleArn": "arn:aws:iam::747289435345:role/amplify-amplify3728f88fb8564-staging-00404-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::747289435345:role/amplify-amplify3728f88fb8564-staging-00404-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplify3728f88fb8564-staging-00404-deployment",
+      "UnauthRoleName": "amplify-amplify3728f88fb8564-staging-00404-unauthRole",
+      "StackName": "amplify-amplify3728f88fb8564-staging-00404",
+      "StackId": "arn:aws:cloudformation:us-east-1:747289435345:stack/amplify-amplify3728f88fb8564-staging-00404/ec131360-afe8-11ed-8cac-12fc58057a79",
+      "AmplifyAppId": "d2sgk48knqno1u"
+    },
+    "categories": {
+      "auth": {
+        "symbiotaclient79680856": {}
+      }
+    }
+  }
+}
