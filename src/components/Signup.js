@@ -60,7 +60,7 @@ export default class Signup extends Component {
           </div>
 
           <div className="my-5">
-          <label htmlFor="password" className="sr-only">
+            <label htmlFor="password" className="sr-only">
               Password
             </label>
             <input
@@ -77,26 +77,23 @@ export default class Signup extends Component {
           </div>
 
           <div className="my-5">
-          <label htmlFor="confirm-password" className="sr-only">
+            <label htmlFor="confirm-password" className="sr-only">
               Confrim password
             </label>
-          <input
-            key="confirm-password"
-            value={this.props.confirmPassword}
-            id="confirm-password"
-            name="confirm-password"
-            type="password"
-            autoComplete="confirm-password"
-            placeholder="Confirm Password"
-            onChange={this.props.handleFormInput}
-            className={fixedInputClass}
-          />
+            <input
+              key="confirm-password"
+              value={this.props.confirmPassword}
+              id="confirm-password"
+              name="confirm-password"
+              type="password"
+              autoComplete="confirm-password"
+              placeholder="Confirm Password"
+              onChange={this.props.handleFormInput}
+              className={fixedInputClass}
+            />
           </div>
           <input type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 mt-10" value="Signup" onClick={this.handleSubmit} />
         </div>
-
-
-
       </form>
     );
   }
