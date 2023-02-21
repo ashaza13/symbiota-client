@@ -1,64 +1,61 @@
 import '../App.css';
-import { loginFields } from "../constants/formFields";
-import FormAction from "./FormAction";
 import FormExtra from "./FormExtra";
-import Input from "./Input";
-import React, { useState, useEffect } from 'react';
-import { Auth, Hub } from 'aws-amplify';
+import React, { Component } from 'react';
+import { Auth } from 'aws-amplify';
 
-const fields=loginFields;
-let fieldsState = {};
-fields.forEach(field=>fieldsState[field.id]='');
+const fixedInputClass = "rounded-md appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
 
-export default function Login(){
-    const [loginState,setLoginState]=useState(fieldsState);
+export default class Login extends Component {
+    handleLogin = event => {
+        event.preventDefault();
+        const { username, password } = this.props.inputs;
+        // You can pass an object which has the username, password and validationData which is sent to a PreAuthentication Lambda trigger
+        Auth.signIn({ username, password })
+            .then(user => console.log(user))
+            .then(() => this.props.switchComponent("Dashboard"))
+            .catch(err => console.log(err));
+    };
 
-    const handleChange=(e)=>{
-        setLoginState({...loginState,[e.target.id]:e.target.value})
+    render() {
+        return (
+            <form className="mt-8 space-y-6">
+                <div className="-space-y-px">
+                    <div className="my-5">
+                        <label htmlFor="username" className="sr-only">
+                            Username
+                        </label>
+                        <input
+                            key="username"
+                            value={this.props.username}
+                            id="username"
+                            name="username"
+                            type="text"
+                            placeholder="Username"
+                            onChange={this.props.handleFormInput}
+                            className={fixedInputClass}
+                        />
+                    </div>
+                    <div className="my-5">
+                        <label htmlFor="password" className="sr-only">
+                            Password
+                        </label>
+                        <input
+                            key="password"
+                            value={this.props.password}
+                            id="password"
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                            autoComplete="current-password"
+                            onChange={this.props.handleFormInput}
+                            className={fixedInputClass}
+                        />
+                    </div>
+                    <input type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 mt-10" value="Login" onClick={this.handleLogin} />
+                </div>
+
+                <FormExtra />
+            </form>
+        );
     }
-
-    const handleSubmit=(e)=>{
-        e.preventDefault();
-        authenticateUser();
-    }
-
-    //Handle Login API Integration here
-    async function authenticateUser() {
-        await Auth.signIn(loginState.username, loginState.password);
-        try {
-            const user = await Auth.currentAuthenticatedUser()
-            console.log('user: ', user)
-            //updateUser(user)
-            //updateFormState(() => ({ ...formState, formType: "signedIn" }))
-          } catch (err) {
-            //updateUser(null)
-          }
-    }
-
-    return(
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-        <div className="-space-y-px">
-            {
-                fields.map(field=>
-                        <Input
-                            key={field.id}
-                            handleChange={handleChange}
-                            value={loginState[field.id]}
-                            labelText={field.labelText}
-                            labelFor={field.labelFor}
-                            id={field.id}
-                            name={field.name}
-                            type={field.type}
-                            isRequired={field.isRequired}
-                            placeholder={field.placeholder}
-                    />
-                )
-            }
-        </div>
-
-        <FormExtra/>
-        <FormAction handleSubmit={handleSubmit} text="Login"/>
-
-      </form>
-    )
 }
