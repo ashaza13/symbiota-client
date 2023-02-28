@@ -30,24 +30,23 @@ export default class ConfirmPage extends Component {
                         linkUrl=""
                     />
                     <form className="mt-8 space-y-6">
-                        <div className="-space-y-px">
-                            <div className="my-5">
-                                <label htmlFor="confirmation-code" className="sr-only">
-                                    Confirmation Code
-                                </label>
-                                <input
-                                    key="code"
-                                    value={this.props.code}
-                                    id="code"
-                                    name="code"
-                                    type="text"
-                                    placeholder="Confirmation Code"
-                                    onChange={this.props.handleFormInput}
-                                    className={fixedInputClass}
-                                />
-                            </div>
-                            <input type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 mt-10" value="Confirm" onClick={this.handleConfirmation} />
+
+                        <div className="my-5">
+                            <label htmlFor="confirmation-code" className="sr-only">
+                                Confirmation Code
+                            </label>
+                            <input
+                                key="code"
+                                value={this.props.code}
+                                id="code"
+                                name="code"
+                                type="text"
+                                placeholder="Confirmation Code"
+                                onChange={this.props.handleFormInput}
+                                className={fixedInputClass}
+                            />
                         </div>
+                        <input type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 mt-10" value="Confirm" onClick={this.handleConfirmation} />
                     </form>
                 </div>
             </div>

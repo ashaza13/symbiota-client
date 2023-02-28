@@ -28,40 +28,38 @@ export default class LoginPage extends Component {
                         linkUrl="/signup"
                     />
                     <form className="mt-8 space-y-6">
-                        <div className="-space-y-px">
-                            <div className="my-5">
-                                <label htmlFor="username" className="sr-only">
-                                    Username
-                                </label>
-                                <input
-                                    key="username"
-                                    value={this.props.username}
-                                    id="username"
-                                    name="username"
-                                    type="text"
-                                    placeholder="Username"
-                                    onChange={this.props.handleFormInput}
-                                    className={fixedInputClass}
-                                />
-                            </div>
-                            <div className="my-5">
-                                <label htmlFor="password" className="sr-only">
-                                    Password
-                                </label>
-                                <input
-                                    key="password"
-                                    value={this.props.password}
-                                    id="password"
-                                    name="password"
-                                    type="password"
-                                    placeholder="Password"
-                                    autoComplete="current-password"
-                                    onChange={this.props.handleFormInput}
-                                    className={fixedInputClass}
-                                />
-                            </div>
-                            <input type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 mt-10" value="Login" onClick={this.handleLogin} />
+                        <div className="my-5">
+                            <label htmlFor="username" className="sr-only">
+                                Username
+                            </label>
+                            <input
+                                key="username"
+                                value={this.props.username}
+                                id="username"
+                                name="username"
+                                type="text"
+                                placeholder="Username"
+                                onChange={this.props.handleFormInput}
+                                className={fixedInputClass}
+                            />
                         </div>
+                        <div className="my-5">
+                            <label htmlFor="password" className="sr-only">
+                                Password
+                            </label>
+                            <input
+                                key="password"
+                                value={this.props.password}
+                                id="password"
+                                name="password"
+                                type="password"
+                                placeholder="Password"
+                                autoComplete="current-password"
+                                onChange={this.props.handleFormInput}
+                                className={fixedInputClass}
+                            />
+                        </div>
+                        <input type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 mt-10" value="Login" onClick={this.handleLogin} />
 
                         <FormExtra />
                     </form>

@@ -1,7 +1,9 @@
 import "../App.css";
 import Nav from "../components/Navbar";
+import Search from "../components/SearchSection";
+import Panel from "../components/Panel";
 
-export default function DashboardPage() {
+export default function SearchPage() {
 
     return (
         <>
@@ -33,6 +35,10 @@ export default function DashboardPage() {
                 </div>
                 <Nav />
             </div>
+            <main>
+                <Search />
+            </main>
+
         </>
     )
 }

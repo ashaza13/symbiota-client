@@ -24,87 +24,84 @@ export default class SignupPage extends Component {
 
   render() {
     return (
-        <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
-            <Header
-                heading="Signup to create an account"
-                paragraph="Already have an account? "
-                linkName="Login"
-                linkUrl="/login"
-            />
-      <form className="mt-8 space-y-6">
-        <div className="-space-y-px">
-
-          <div className="my-5">
-            <label htmlFor="username" className="sr-only">
-              Username
-            </label>
-            <input
-              key="username"
-              value={this.props.username}
-              id="username"
-              name="username"
-              type="text"
-              placeholder="Username"
-              onChange={this.props.handleFormInput}
-              className={fixedInputClass}
-            />
-          </div>
-
-          <div className="my-5">
-            <label htmlFor="email-address" className="sr-only">
-              Email address
-            </label>
-            <input
-              key="email-address"
-              value={this.props.email}
-              id="email-address"
-              name="email"
-              type="email"
-              placeholder="Email address"
-              autoComplete="email"
-              onChange={this.props.handleFormInput}
-              className={fixedInputClass}
-            />
-          </div>
-
-          <div className="my-5">
-          <label htmlFor="password" className="sr-only">
-              Password
-            </label>
-            <input
-              key="password"
-              value={this.props.password}
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Password"
-              autoComplete="current-password"
-              onChange={this.props.handleFormInput}
-              className={fixedInputClass}
-            />
-          </div>
-
-          <div className="my-5">
-          <label htmlFor="confirm-password" className="sr-only">
-              Confrim password
-            </label>
-          <input
-            key="confirm-password"
-            value={this.props.confirmPassword}
-            id="confirm-password"
-            name="confirm-password"
-            type="password"
-            autoComplete="confirm-password"
-            placeholder="Confirm Password"
-            onChange={this.props.handleFormInput}
-            className={fixedInputClass}
+          <Header
+            heading="Signup to create an account"
+            paragraph="Already have an account? "
+            linkName="Login"
+            linkUrl="/login"
           />
-          </div>
-          <input type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 mt-10" value="Signup" onClick={this.handleSignUp} />
+          <form className="mt-8 space-y-6">
+            <div className="my-5">
+              <label htmlFor="username" className="sr-only">
+                Username
+              </label>
+              <input
+                key="username"
+                value={this.props.username}
+                id="username"
+                name="username"
+                type="text"
+                placeholder="Username"
+                onChange={this.props.handleFormInput}
+                className={fixedInputClass}
+              />
+            </div>
+
+            <div className="my-5">
+              <label htmlFor="email-address" className="sr-only">
+                Email address
+              </label>
+              <input
+                key="email-address"
+                value={this.props.email}
+                id="email-address"
+                name="email"
+                type="email"
+                placeholder="Email address"
+                autoComplete="email"
+                onChange={this.props.handleFormInput}
+                className={fixedInputClass}
+              />
+            </div>
+
+            <div className="my-5">
+              <label htmlFor="password" className="sr-only">
+                Password
+              </label>
+              <input
+                key="password"
+                value={this.props.password}
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Password"
+                autoComplete="current-password"
+                onChange={this.props.handleFormInput}
+                className={fixedInputClass}
+              />
+            </div>
+
+            <div className="my-5">
+              <label htmlFor="confirm-password" className="sr-only">
+                Confrim password
+              </label>
+              <input
+                key="confirm-password"
+                value={this.props.confirmPassword}
+                id="confirm-password"
+                name="confirm-password"
+                type="password"
+                autoComplete="confirm-password"
+                placeholder="Confirm Password"
+                onChange={this.props.handleFormInput}
+                className={fixedInputClass}
+              />
+            </div>
+            <input type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 mt-10" value="Signup" onClick={this.handleSignUp} />
+          </form>
         </div>
-      </form>
-      </div>
       </div>
     );
   }
