@@ -1,24 +1,50 @@
+import React, { useState, useEffect } from 'react';
+import { Auth, Hub } from 'aws-amplify'
 import './App.css';
-import React from 'react';
-import Authentication from './pages/Authentication';
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import DashboardPage from './pages/Dashboard';
-import HomePage from './pages/Home';
-import SearchPage from './pages/Search';
+
+import UserContext from './UserContext';
+import Router from './Router';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState({});
+  const [isLoaded, setIsLoaded] = useState({});
+  useEffect(() => {
+    updateCurrentUser();
+    listen();
+  }, [])
+  function listen() {
+    Hub.listen('auth', (data) => {
+      if (data.payload.event === 'signIn') {
+        updateCurrentUser();
+      }
+      if (data.payload.event === 'signOut') {
+        updateCurrentUser();
+      }
+    });
+  }
+  async function updateCurrentUser(user = null) {
+    if (user) {
+      setCurrentUser(user);
+      return
+    }
+    try {
+      const user = await Auth.currentAuthenticatedUser()
+      setCurrentUser(user);
+      setIsLoaded(true);
+    } catch (err) {
+      setCurrentUser(null);
+      setIsLoaded(true);
+    }
+  }
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/signup" element={<Authentication />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/login" element={<Authentication />} />
-      </Routes>
-    </BrowserRouter>
+    <UserContext.Provider value={{
+      user: currentUser,
+      updateCurrentUser: updateCurrentUser,
+      isLoaded: isLoaded
+    }}>
+      <Router />
+    </UserContext.Provider>
   );
 }
 
 export default App;
-

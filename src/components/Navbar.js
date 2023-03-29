@@ -8,8 +8,8 @@ import { Auth } from "aws-amplify";
 
 const navigation = [
   { name: 'Home', href: '#', current: true, linkUrl: "/" },
-  { name: 'Search', href: '#', current: false, linkUrl: "/search" },
-  { name: 'About', href: '#', current: false, linkUrl: "/about" },
+  { name: 'Search', href: '#', current: false, linkUrl: "/profile" },
+  { name: 'About', href: '#', current: false, linkUrl: "/app" },
 ]
 
 export default function Nav() {
