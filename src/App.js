@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Auth, Hub } from 'aws-amplify'
 import './App.css';
 
-import UserContext from './UserContext';
-import Router from './Router';
+import UserContext from './pages/UserContext';
+import Router from './pages/Router';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});

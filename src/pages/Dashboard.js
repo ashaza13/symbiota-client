@@ -5,7 +5,7 @@ import { Auth } from 'aws-amplify';
 export default function DashboardPage() {
 
     return (
-        <>
+        <div>
             <div className="isolate bg-white">
                 <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
                     <svg
@@ -32,9 +32,7 @@ export default function DashboardPage() {
                         </defs>
                     </svg>
                 </div>
-                <Nav />
-                <button onClick={() => Auth.signOut()}>Sign Out</button>
             </div>
-        </>
+        </div>
     )
 }

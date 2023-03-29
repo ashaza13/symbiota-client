@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './pages/serviceWorker';
 
 import config from './aws-exports';
 import { Amplify } from 'aws-amplify';

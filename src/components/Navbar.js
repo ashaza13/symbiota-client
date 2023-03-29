@@ -19,8 +19,8 @@ export default function Nav() {
       <nav className="flex items-center justify-between" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <img className="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=black&shade=600" alt="" />
+            <span className="sr-only">Symbiota</span>
+            <img className="h-8" src="https://ik.imagekit.io/qysd8alv5/icon.png?ik-sdk-version=javascript-1.4.3&updatedAt=1676943689807" alt="" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -51,8 +51,8 @@ export default function Nav() {
         <Dialog.Panel className="fixed inset-0 z-10 overflow-y-auto px-6 py-6 lg:hidden">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img className="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=black&shade=600" alt="" />
+              <span className="sr-only">Symbiota</span>
+              <img className="h-8" src="https://ik.imagekit.io/qysd8alv5/icon.png?ik-sdk-version=javascript-1.4.3&updatedAt=1676943689807" alt="" />
             </a>
             <button
               type="button"

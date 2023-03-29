@@ -110,19 +110,19 @@ export default function Profile() {
                   placeholder="Username"
                   onChange={onChange}
                 />
+                  <input
+                    name="email"
+                    value={email}
+                    className={inputStyle}
+                    placeholder="Email"
+                    onChange={onChange}
+                  />
                 <input
                   name="password"
                   value={password}
                   className={inputStyle}
                   type="password"
                   placeholder="Password"
-                  onChange={onChange}
-                />
-                <input
-                  name="email"
-                  value={email}
-                  className={inputStyle}
-                  placeholder="Email"
                   onChange={onChange}
                 />
                 <button onClick={signUp} className={buttonStyle}>
