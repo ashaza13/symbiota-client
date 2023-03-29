@@ -1,5 +1,6 @@
 import "../App.css";
 import Nav from "../components/Navbar";
+import { Auth } from 'aws-amplify';
 
 export default function DashboardPage() {
 
@@ -32,6 +33,7 @@ export default function DashboardPage() {
                     </svg>
                 </div>
                 <Nav />
+                <button onClick={() => Auth.signOut()}>Sign Out</button>
             </div>
         </>
     )

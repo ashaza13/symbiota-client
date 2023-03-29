@@ -1,6 +1,19 @@
-import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
+import React from "react";
+import Axios from 'axios';
 
 export default function Search() {
+    const searchAPI = () => {
+        
+    }
+
+    const getMaterials = () => {
+        Axios.get('http://api.earth911.com/earth911.getMaterials?api_key=78f068355354cca5').then(
+            (response) => {
+                console.log(response);
+            }
+        );
+    }
+
     return (
         <div className="relative isolate overflow-hidden py-16 sm:py-24 lg:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">

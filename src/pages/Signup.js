@@ -1,7 +1,7 @@
 import "../App.css";
-import Header from "../components/Header";
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
+import { Link } from 'react-router-dom';
 
 const fixedInputClass = "rounded-md appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
 
@@ -9,6 +9,11 @@ export default class SignupPage extends Component {
   handleSignUp = event => {
     event.preventDefault();
     const { username, email, password, confirmPassword } = this.props.inputs;
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+    }
+
     Auth.signUp({
       username,
       password,
@@ -22,16 +27,33 @@ export default class SignupPage extends Component {
       .catch(err => console.log(err))
   };
 
+  handleLoginClick = event => {
+    event.preventDefault();
+    this.props.switchComponent("Login")
+  };
+
   render() {
     return (
       <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
-          <Header
-            heading="Signup to create an account"
-            paragraph="Already have an account? "
-            linkName="Login"
-            linkUrl="/login"
-          />
+
+          <div className="mb-10">
+            <div className="flex justify-center">
+              <img
+                alt=""
+                className="h-14 w-14"
+                src="https://ik.imagekit.io/qysd8alv5/icon.png?ik-sdk-version=javascript-1.4.3&updatedAt=1676943689807" />
+            </div>
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+              Signup to create an account
+            </h2>
+            <p className="mt-2 text-center text-sm text-gray-600 mt-5">
+              Already have an account? {' '}
+              <Link to="" onClick={this.handleLoginClick} className="font-medium text-green-600 hover:text-green-500">
+                Login
+              </Link>
+            </p>
+          </div>
           <form className="mt-8 space-y-6">
             <div className="my-5">
               <label htmlFor="username" className="sr-only">

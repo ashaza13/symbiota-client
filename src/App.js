@@ -6,8 +6,6 @@ import DashboardPage from './pages/Dashboard';
 import HomePage from './pages/Home';
 import SearchPage from './pages/Search';
 
-
-
 function App() {
   return (
     <BrowserRouter>
@@ -16,6 +14,7 @@ function App() {
         <Route path="/signup" element={<Authentication />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/login" element={<Authentication />} />
       </Routes>
     </BrowserRouter>
   );
