@@ -1,10 +1,4 @@
-import "../App.css";
-import {Link} from 'react-router-dom';
-
-export default function Header({
-    heading,
-    paragraph
-}){
+const Header = ({heading, paragraph}) => {
     return(
         <div className="mb-10">
             <div className="flex justify-center">
@@ -22,3 +16,5 @@ export default function Header({
         </div>
     )
 }
+
+export default Header;

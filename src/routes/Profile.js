@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { css } from '@emotion/css';
-import theme from './theme';
 import { Auth } from 'aws-amplify';
 
 const intitialFormState = {
@@ -11,9 +10,7 @@ const intitialFormState = {
   formType: 'signUp'
 }
 
-const { primaryColor } = theme;
-
-export default function Profile() {
+const Profile = () => {
   const [formState, setFormState] = useState(intitialFormState);
   const [loading, setLoading] = useState(true);
   const { username, email, password, authCode, formType } = formState;
@@ -32,16 +29,16 @@ export default function Profile() {
       setUser(null);
       setLoading(false);
     }
-  }
+  };
 
   function onChange(e) {
     e.persist();
     setFormState(() => ({ ...formState, [e.target.name]: e.target.value }));
-  }
+  };
 
   function toggleFormType(formType) {
     setFormState(state => ({ ...state, formType }));
-  }
+  };
 
   async function signUp() {
     if (!username || !email || !password) return;
@@ -53,17 +50,20 @@ export default function Profile() {
     } catch (err) {
       console.log('error signing up: ', err);
     }
-  }
+  };
+
   async function signIn() {
     if (!username || !password) return;
     try {
       const user = await Auth.signIn(username, password);
       setUser(user);
+      localStorage.setItem('username', user.username);
       setFormState(() => ({ ...formState, formType: 'signedIn' }));
     } catch (err) {
       console.log('error signing in: ', err);
     }
-  }
+  };
+
   async function confirmSignUp() {
     if (!authCode) return;
     try {
@@ -72,20 +72,22 @@ export default function Profile() {
     } catch (err) {
       console.log('error confirming signing up: ', err);
     }
-  }
+  };
+
   async function signOut() {
     await Auth.signOut();
     setFormState(() => ({ ...formState, formType: 'signUp' }));
     setUser(null);
-  }
+  };
+
   if (loading) return null
   return (
-    <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div className='mt-8 space-y-6'>
           {
             formType === 'signUp' && (
-              <div className={formContainerStyle}>
+              <div>
                 <div className="mb-10">
                   <div className="flex justify-center">
                     <img
@@ -133,7 +135,7 @@ export default function Profile() {
           }
           {
             formType === 'confirmSignUp' && (
-              <div className={formContainerStyle}>
+              <div>
                 <div className="mb-10">
                   <div className="flex justify-center">
                     <img
@@ -160,7 +162,7 @@ export default function Profile() {
           }
           {
             formType === 'signIn' && (
-              <div className={formContainerStyle}>
+              <div>
                 <div className="mb-10">
                   <div className="flex justify-center">
                     <img
@@ -169,7 +171,7 @@ export default function Profile() {
                       src="https://ik.imagekit.io/qysd8alv5/icon.png?ik-sdk-version=javascript-1.4.3&updatedAt=1676943689807" />
                   </div>
                   <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                    Sign up for your account
+                    Sign in to your account
                   </h2>
                   <p className="mt-2 text-center text-sm text-gray-600 mt-5">
                     Need an account?{' '}
@@ -201,8 +203,9 @@ export default function Profile() {
           }
           {
             formType === 'signedIn' && (
-              <div className={profileContainerStyle}>
+              <div>
                 <h1>Hello, {user.username}</h1>
+                ofajf
                 <button onClick={signOut} className={buttonStyle}>
                   Sign Out
                 </button>
@@ -212,18 +215,12 @@ export default function Profile() {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-const profileContainerStyle = css`
-  display: flex;
-  flex-direction: column;
-`
+export default Profile;
 
-const stateToggleStyle = `font-medium text-green-600 hover:text-green-500'
-`
-
-const formContainerStyle = ''
+const stateToggleStyle = `font-medium text-green-600 hover:text-green-500`
 
 const inputStyle = "rounded-md appearance-none relative block w-full px-3 my-5 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
 

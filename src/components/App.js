@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Auth, Hub } from 'aws-amplify'
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { Auth, Hub } from 'aws-amplify';
 
-import UserContext from './pages/UserContext';
-import Router from './pages/Router';
+import Nav from '../components/Nav';
+import UserContext from '../routes/UserContext';
+import Background from '../components/Background';
+import SearchScreen from '../routes/SearchScreen';
+import Profile from '../routes/Profile';
+import HomeScreen from '../routes/HomeScreen';
 
-function App() {
+const App = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [isLoaded, setIsLoaded] = useState({});
+
   useEffect(() => {
     updateCurrentUser();
     listen();
-  }, [])
+  }, []);
+
   function listen() {
     Hub.listen('auth', (data) => {
       if (data.payload.event === 'signIn') {
@@ -21,7 +27,8 @@ function App() {
         updateCurrentUser();
       }
     });
-  }
+  };
+
   async function updateCurrentUser(user = null) {
     if (user) {
       setCurrentUser(user);
@@ -35,16 +42,23 @@ function App() {
       setCurrentUser(null);
       setIsLoaded(true);
     }
-  }
+  };
+
   return (
     <UserContext.Provider value={{
       user: currentUser,
       updateCurrentUser: updateCurrentUser,
       isLoaded: isLoaded
     }}>
-      <Router />
+      <Background />
+      <Nav />
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/search" element={<SearchScreen />} />
+        <Route path="/signup" element={<Profile />} />
+      </Routes>
     </UserContext.Provider>
   );
-}
+};
 
 export default App;

@@ -1,18 +1,16 @@
-import "../App.css";
 import { Link } from 'react-router-dom';
 import React, { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Auth } from "aws-amplify";
 
 
 const navigation = [
   { name: 'Home', href: '#', current: true, linkUrl: "/" },
-  { name: 'Search', href: '#', current: false, linkUrl: "/profile" },
-  { name: 'About', href: '#', current: false, linkUrl: "/app" },
+  { name: 'Search', href: '#', current: false, linkUrl: "/search" },
+  { name: 'About', href: '#', current: false, linkUrl: "/profile" },
 ]
 
-export default function Nav() {
+const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <div className="px-6 pt-6 lg:px-8">
@@ -82,6 +80,8 @@ export default function Nav() {
         </Dialog.Panel>
       </Dialog>
     </div>
-  )
-}
+  );
+};
+
+export default Nav;
 
