@@ -1,26 +1,24 @@
-import "../App.css";
 import { Link } from 'react-router-dom';
 import React, { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Auth } from "aws-amplify";
 
 
 const navigation = [
   { name: 'Home', href: '#', current: true, linkUrl: "/" },
   { name: 'Search', href: '#', current: false, linkUrl: "/search" },
-  { name: 'About', href: '#', current: false, linkUrl: "/about" },
+  { name: 'About', href: '#', current: false, linkUrl: "/profile" },
 ]
 
-export default function Nav() {
+const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <div className="px-6 pt-6 lg:px-8">
       <nav className="flex items-center justify-between" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <img className="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=black&shade=600" alt="" />
+            <span className="sr-only">Symbiota</span>
+            <img className="h-8" src="https://ik.imagekit.io/qysd8alv5/icon.png?ik-sdk-version=javascript-1.4.3&updatedAt=1676943689807" alt="" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -51,8 +49,8 @@ export default function Nav() {
         <Dialog.Panel className="fixed inset-0 z-10 overflow-y-auto px-6 py-6 lg:hidden">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img className="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=black&shade=600" alt="" />
+              <span className="sr-only">Symbiota</span>
+              <img className="h-8" src="https://ik.imagekit.io/qysd8alv5/icon.png?ik-sdk-version=javascript-1.4.3&updatedAt=1676943689807" alt="" />
             </a>
             <button
               type="button"
@@ -82,6 +80,8 @@ export default function Nav() {
         </Dialog.Panel>
       </Dialog>
     </div>
-  )
-}
+  );
+};
+
+export default Nav;
 

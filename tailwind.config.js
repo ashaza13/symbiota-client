@@ -2,20 +2,32 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    container: {
-      padding: '6rem',
-    },
     extend: {
+      screens: {
+        sm: '480px',
+        md: '768px',
+        lg: '976px',
+        xl: `1440px`,
+      },
       colors: {
-        'eggshell': '#F2F9F1',
-        'dark-green': '#388E3C',
-        'light-green': '#8BC34A',
-        'green-white': '#DDEEDF',
-        'dark-shade': '#212529',
-      }
+        white: `#F2F9F1`,
+        pureWhite: `#FFFFFF`,
+        darkGreen: `388E3C`,
+        lightGreen: `#8BC34A`,
+        offWhite: `#DDEEDF`,
+        darkGray: `#212529`,
+        black: `#181818`,
+      },
+      fontFamily: {
+        'lato': ['Lato', 'sans-serif'],
+      },
+      container: {
+        padding: '2rem',
+      },
     },
   },
   plugins: [
     require('@tailwindcss/forms'),
   ],
 }
+

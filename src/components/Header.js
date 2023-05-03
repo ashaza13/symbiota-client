@@ -1,12 +1,4 @@
-import "../App.css";
-import {Link} from 'react-router-dom';
-
-export default function Header({
-    heading,
-    paragraph,
-    linkName,
-    linkUrl="#"
-}){
+const Header = ({heading, paragraph}) => {
     return(
         <div className="mb-10">
             <div className="flex justify-center">
@@ -20,10 +12,9 @@ export default function Header({
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600 mt-5">
             {paragraph} {' '}
-            <Link to={linkUrl} className="font-medium text-green-600 hover:text-green-500">
-                {linkName}
-            </Link>
             </p>
         </div>
     )
 }
+
+export default Header;
