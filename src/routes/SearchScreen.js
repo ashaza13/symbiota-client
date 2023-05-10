@@ -3,7 +3,8 @@ import Error from '../components/Error';
 import Loading from '../components/Loading';
 import Card from '../components/Card';
 import { Link } from 'react-router-dom';
-import { key } from '../earth911/index.js'
+
+const key = process.env.API_KEY;
 
 const SearchScreen = () => {
     const [error, setError] = useState(null);
