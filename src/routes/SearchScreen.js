@@ -4,7 +4,7 @@ import Loading from '../components/Loading';
 import Card from '../components/Card';
 import { Link } from 'react-router-dom';
 
-const key = process.env.API_KEY;
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const SearchScreen = () => {
     const [error, setError] = useState(null);
@@ -14,7 +14,8 @@ const SearchScreen = () => {
     const [q, setQ] = useState("");
 
     useEffect(() => {
-        fetch("https://api.earth911.com/earth911.getMaterials?api_key=" + key)
+        console.log("https://api.earth911.com/earth911.getMaterials?api_key=" + apiKey);
+        fetch("https://api.earth911.com/earth911.getMaterials?api_key=" + apiKey)
             .then(res => res.json())
             .then(
                 (result) => {
@@ -41,6 +42,7 @@ const SearchScreen = () => {
     if (error) {
         return (
             <>
+                {console.log("HERE")}
                 <Error text="Symbiota Search" msg={error.message} />
             </>
         )
