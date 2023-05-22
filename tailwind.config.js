@@ -10,20 +10,19 @@ module.exports = {
         xl: `1440px`,
       },
       colors: {
-        white: `#F2F9F1`,
-        pureWhite: `#FFFFFF`,
+        greenWhite: `#F2F9F1`,
         darkGreen: `388E3C`,
         lightGreen: `#8BC34A`,
         offWhite: `#DDEEDF`,
         darkGray: `#212529`,
         black: `#181818`,
       },
-      fontFamily: {
-        'lato': ['Lato', 'sans-serif'],
-      },
       container: {
         padding: '2rem',
       },
+    },
+    fontFamily: {
+      'lato': ['Lato', 'sans-serif'],
     },
   },
   plugins: [

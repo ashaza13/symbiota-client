@@ -1,4 +1,20 @@
 {
+  "api": {
+    "apia1882a21": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "MaterialHandler"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
     "symbiotaclient79680856": {
       "customAuth": false,
@@ -27,5 +43,30 @@
       "service": "Cognito"
     }
   },
-  "function": {}
+  "function": {
+    "MaterialHandler": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_MaterialHandler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "MaterialHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_MaterialHandler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "MaterialHandler"
+        }
+      ]
+    }
+  }
 }

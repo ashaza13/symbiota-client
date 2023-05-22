@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/material/{materialId}": {
+      "name": "/material/{materialId}",
+      "lambdaFunction": "MaterialHandler",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

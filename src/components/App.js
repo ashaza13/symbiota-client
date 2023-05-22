@@ -8,6 +8,7 @@ import Background from '../components/Background';
 import SearchScreen from '../routes/SearchScreen';
 import Profile from '../routes/Profile';
 import HomeScreen from '../routes/HomeScreen';
+import DetailsScreen from '../routes/DetailsScreen';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -50,13 +51,16 @@ const App = () => {
       updateCurrentUser: updateCurrentUser,
       isLoaded: isLoaded
     }}>
-      <Background />
-      <Nav />
-      <Routes>
-        <Route path="/" element={<HomeScreen />} />
-        <Route path="/search" element={<SearchScreen />} />
-        <Route path="/signup" element={<Profile />} />
-      </Routes>
+      <div className="font-lato">
+        <Background />
+        <Nav />
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/search" element={<SearchScreen />} />
+          <Route path="/signup" element={<Profile />} />
+          <Route path="/details/:id" element={<DetailsScreen />} />
+        </Routes>
+      </div>
     </UserContext.Provider>
   );
 };

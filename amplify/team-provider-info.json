@@ -14,6 +14,15 @@
     "categories": {
       "auth": {
         "symbiotaclient79680856": {}
+      },
+      "function": {
+        "MaterialHandler": {
+          "deploymentBucketName": "amplify-amplify3728f88fb8564-staging-00404-deployment",
+          "s3Key": "amplify-builds/MaterialHandler-594d6d5a6c6871346d39-build.zip"
+        }
+      },
+      "api": {
+        "apia1882a21": {}
       }
     }
   }

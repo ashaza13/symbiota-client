@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import NavSearch from './NavSearch';
 
 
 const navigation = [
@@ -13,13 +14,13 @@ const navigation = [
 const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
-    <div className="px-6 pt-6 lg:px-8">
+    <div className="px-6 pt-6 pb-3 lg:px-8 bg-white drop-shadow-sm z-10">
       <nav className="flex items-center justify-between" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Symbiota</span>
             <img className="h-8" src="https://ik.imagekit.io/qysd8alv5/icon.png?ik-sdk-version=javascript-1.4.3&updatedAt=1676943689807" alt="" />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -38,6 +39,7 @@ const Nav = () => {
             </Link>
           ))}
         </div>
+        {/* <NavSearch /> */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link to="/signup" className="text-sm font-semibold leading-6 text-gray-900">
             Sign up

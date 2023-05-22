@@ -14,12 +14,10 @@ const SearchScreen = () => {
     const [q, setQ] = useState("");
 
     useEffect(() => {
-        console.log("https://api.earth911.com/earth911.getMaterials?api_key=" + apiKey);
         fetch("https://api.earth911.com/earth911.getMaterials?api_key=" + apiKey)
             .then(res => res.json())
             .then(
                 (result) => {
-                    // console.log(result.result.find(({ description }) => description === "#1 Plastic Bags"));
                     setIsLoaded(true);
                     setItems(result.result);
                 },
@@ -42,7 +40,6 @@ const SearchScreen = () => {
     if (error) {
         return (
             <>
-                {console.log("HERE")}
                 <Error text="Symbiota Search" msg={error.message} />
             </>
         )
@@ -56,10 +53,8 @@ const SearchScreen = () => {
     else {
 
         return (
-
             <>
                 <div className="container mx-auto">
-
                     <input
                         type="search"
                         name="search-form"
@@ -70,10 +65,10 @@ const SearchScreen = () => {
                         onChange={(e) => setQ(e.target.value)}
                     />
                     <ul className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-4">
-                        {search(items).map(item => (
-                            <li className="mt-auto component py-4 col-span-1">
-                                <Link to={`/${item.name}`}>
-                                    <Card id={item.material_id} name={item.description} long_description={item.long_description} />
+                        {search(items).map((item, i) => (
+                            <li key={i} className="mt-auto component py-4 col-span-1">
+                                <Link to={`/details/${item.material_id}`}>
+                                    <Card id={item.material_id} name={item.description} long_description={item.long_description} family_ids={item.family_ids} />
                                 </Link>
                             </li>
                         ))}
