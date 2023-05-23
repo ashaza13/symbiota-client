@@ -9,6 +9,7 @@ import SearchScreen from '../routes/SearchScreen';
 import Profile from '../routes/Profile';
 import HomeScreen from '../routes/HomeScreen';
 import DetailsScreen from '../routes/DetailsScreen';
+import Footer from '../components/Footer';
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -60,6 +61,7 @@ const App = () => {
           <Route path="/signup" element={<Profile />} />
           <Route path="/details/:id" element={<DetailsScreen />} />
         </Routes>
+        <Footer />
       </div>
     </UserContext.Provider>
   );

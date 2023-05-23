@@ -64,15 +64,18 @@ const SearchScreen = () => {
                         value={q}
                         onChange={(e) => setQ(e.target.value)}
                     />
-                    <ul className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-4">
-                        {search(items).map((item, i) => (
-                            <li key={i} className="mt-auto component py-4 col-span-1">
-                                <Link to={`/details/${item.material_id}`}>
-                                    <Card id={item.material_id} name={item.description} long_description={item.long_description} family_ids={item.family_ids} />
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="items">
+
+                        <ul className="grid grid-cols-1 gap-4 md:grid-cols-4">
+                            {search(items).map((item, i) => (
+                                <li key={i} className="mt-auto component py-4 col-span-1">
+                                    <Link to={`/details/${item.material_id}`}>
+                                        <Card id={item.material_id} name={item.description} long_description={item.long_description} family_ids={item.family_ids} image={item.image} />
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </>
         )

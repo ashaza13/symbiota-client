@@ -39,8 +39,8 @@ const Nav = () => {
             </Link>
           ))}
         </div>
-        {/* <NavSearch /> */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden lg:items-center lg:flex lg:flex-1 lg:justify-end">
+          <NavSearch />
           <Link to="/signup" className="text-sm font-semibold leading-6 text-gray-900">
             Sign up
             <span aria-hidden="true">&rarr;</span>
